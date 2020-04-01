@@ -50,6 +50,19 @@ class PokemonTestsIntroTests: XCTestCase {
         XCTAssertTrue(charmander.health < psyduck.health)
     }
     
+    func testCheckIfTheDamageIsDecreasingLifeCorrectly() {
+        
+        squirtle.attack(enemy: charmander)
+        
+        charmander.attack(enemy: psyduck)
+        
+        psyduck.attack(enemy: squirtle)
+        
+        XCTAssertEqual(charmander.health, 40)
+        XCTAssertEqual(psyduck.health, 90)
+        XCTAssertEqual(squirtle.health, 70)
+    }
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
